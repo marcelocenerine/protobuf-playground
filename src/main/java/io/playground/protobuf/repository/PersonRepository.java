@@ -18,10 +18,10 @@ public class PersonRepository {
 
     @PostConstruct
     void init() {
-        addPerson("John", "john@gmail.com", addPhone("123456", MOBILE));
-        addPerson("Paul", "paul@gmail.com", addPhone("999999", MOBILE), addPhone("888888", HOME));
-        addPerson("Steve", "steve@gmail.com", addPhone("777777", MOBILE));
-        addPerson("Peter", "peter@gmail.com", addPhone("666666", HOME), addPhone("555555", MOBILE), addPhone("444444", MOBILE));
+        addPerson("John", "john@gmail.com", phone("123456", MOBILE));
+        addPerson("Paul", "paul@gmail.com", phone("999999", MOBILE), phone("888888", HOME));
+        addPerson("Steve", "steve@gmail.com", phone("777777", MOBILE));
+        addPerson("Peter", "peter@gmail.com", phone("666666", HOME), phone("555555", MOBILE), phone("444444", MOBILE));
     }
 
     private void addPerson(String name, String email, PhoneNumber...phones) {
@@ -35,7 +35,7 @@ public class PersonRepository {
         persons.put(id, p);
     }
 
-    private PhoneNumber addPhone(String number, PhoneType type) {
+    private PhoneNumber phone(String number, PhoneType type) {
         return PhoneNumber.newBuilder().setNumber(number).setType(type).build();
     }
 
